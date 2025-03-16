@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Form Control</title>
+</head>
+
+<body>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <br><br>
+
+    <label for="fatherName">Father's Name:</label>
+    <input type="text" id="fatherName" placeholder="Enter father's name" disabled>
+    <br><br>
+
+    <button id="submitBtn" disabled>Submit</button>
+
+    <script>
+        let nameInput = document.getElementById("name");
+        let fatherNameInput = document.getElementById("fatherName");
+        let submitBtn = document.getElementById("submitBtn");
+
+        nameInput.addEventListener("input", function () {
+            if (nameInput.value !== "") {
+                fatherNameInput.disabled = false;
+            } else {
+                fatherNameInput.disabled = true;
+                submitBtn.disabled = true;
+            }
+        });
+
+        fatherNameInput.addEventListener("input", function () {
+
+            if (fatherNameInput.value !== "") {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;  
+            }
+        });
+
+    </script>
+</body>
+
+</html>
